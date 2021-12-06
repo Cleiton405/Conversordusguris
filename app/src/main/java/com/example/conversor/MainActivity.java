@@ -4,11 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.textfield.TextInputEditText;
-
-import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     private TextInputEditText Txtvalor1;
     private TextView Txtresultado;
     private TextView Txtresultado1;
+    private Button btnconverter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,24 +26,24 @@ public class MainActivity extends AppCompatActivity {
         Txtresultado = findViewById(R.id.Txtresultado);
         Txtvalor1 = findViewById(R.id.Txtvalor1);
         Txtresultado1 = findViewById(R.id.Txtresultado1);
+        btnconverter = findViewById(R.id.btnConverter);
+
+        btnconverter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                double valorBitcoin = Double.parseDouble(Txtvalor.getText().toString());
+                double valorEuros = Double.parseDouble(Txtvalor1.getText().toString());
+
+                double valorReais1 = valorEuros * 12;
+                double valorReais =  valorBitcoin * 304732.34;
+
+                Txtresultado.setText(" Valor em Reais: " +valorReais +"$");
+                Txtresultado1.setText(" Valor em Reais: " +valorReais1 + "$");
+
+            }
+        });
 
     }
-
-    public void calculo (View v){
-
-        DecimalFormat arredondar = new DecimalFormat("#.##");
-
-    double valorBitcoin = Double.parseDouble(Txtvalor.getText().toString());
-    double valorEuros = Double.parseDouble(Txtvalor1.getText().toString());
-
-    double valorReais1 = valorEuros * 12;
-    double valorReais =  valorBitcoin * 304732.34;
-
-    Txtresultado.setText(" Valor em Reais: " +valorReais +"$");
-    Txtresultado1.setText(" Valor em Reais: " +valorReais1 + "$");
-
-    }
-
-
 
 }
