@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Conversor">
         <activity
+            android:name=".Banco"
+            android:exported="false" />
+        <activity
             android:name=".Informacoes"
             android:exported="false" />
         <activity
