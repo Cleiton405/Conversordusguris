@@ -10,8 +10,10 @@
         android:id="@+id/Txtvalor1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="168dp"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/Txtresultado"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Txtvalor"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -20,6 +22,11 @@
         android:layout_height="wrap_content"
         android:onClick="calculo"
         android:text="Converter"
+        android:textAlignment="center"
+        android:textAllCaps="true"
+        android:textColor="#FF0000"
+        android:textStyle="bold|italic"
+        app:iconTint="#FF0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.079"
@@ -30,13 +37,18 @@
 
     <TextView
         android:id="@+id/TxtConversor"
-        android:layout_width="143dp"
-        android:layout_height="14dp"
-        android:text="Conversor de Moedas"
+        android:layout_width="159dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="16dp"
+        android:text="Conversor de Criptomoedas"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#F10606"
+        android:textSize="24sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.108"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -44,6 +56,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Salvar"
+        android:textAllCaps="true"
+        android:textColor="#FF0000"
+        android:textStyle="bold|italic"
+        app:iconTint="#FF0000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.908"
@@ -53,22 +69,39 @@
 
     <TextView
         android:id="@+id/Txtresultado"
-        android:layout_width="183dp"
-        android:layout_height="88dp"
-        android:layout_marginBottom="292dp"
+        android:layout_width="172dp"
+        android:layout_height="64dp"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.535"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TxtConversor"
+        app:layout_constraintVertical_bias="0.424"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputEditText
         android:id="@+id/Txtvalor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="101dp"
+        android:layout_marginTop="76dp"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TxtConversor"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/Txtresultado1"
+        android:layout_width="172dp"
+        android:layout_height="66dp"
+        android:layout_marginBottom="252dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.532"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Txtresultado"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
