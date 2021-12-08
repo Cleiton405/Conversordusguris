@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">Conversor</string>
+
+    <string-array name="moedas">
+        <item>Selecione...</item>
+        <item>Real</item>
+        <item>Dólar</item>
+        <item>Euro</item>
+    </string-array>
+    <string-array name="cripto">
+        <item>Selecione...</item>
+        <item>BTC</item>
+        <item>ETH</item>
+        <item>BNB</item>
+        <item>SHIB</item>
+        <item>DOGE</item>
+    </string-array>
+
 </resources>
