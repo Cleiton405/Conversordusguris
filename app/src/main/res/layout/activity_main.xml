@@ -10,14 +10,14 @@
         android:id="@+id/Spcripto"
         android:layout_width="128dp"
         android:layout_height="39dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="388dp"
         android:entries="@array/cripto"
         android:spinnerMode="dialog"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.162"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Spmoeda"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.442" />
 
     <Button
         android:id="@+id/btnConverter"
@@ -39,19 +39,19 @@
 
     <TextView
         android:id="@+id/TxtConversor"
-        android:layout_width="159dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="56dp"
-        android:text="Conversor"
+        android:layout_width="191dp"
+        android:layout_height="80dp"
+        android:text="Conversor Moeda - Criptomoeda"
         android:textAlignment="center"
-        android:textAllCaps="false"
+        android:textAllCaps="true"
         android:textColor="#F10606"
         android:textSize="24sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.007"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -80,7 +80,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/Spcripto"
         app:layout_constraintTop_toBottomOf="@+id/Txtmoeda"
-        app:layout_constraintVertical_bias="0.146"
+        app:layout_constraintVertical_bias="0.201"
         tools:ignore="MissingConstraints" />
 
     <com.google.android.material.textfield.TextInputEditText
@@ -91,22 +91,26 @@
         android:layout_marginEnd="76dp"
         android:hint="Valor..."
         android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/Spmoeda"
-        app:layout_constraintTop_toBottomOf="@+id/TxtConversor"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.138"
         tools:ignore="MissingConstraints" />
 
     <Spinner
         android:id="@+id/Spmoeda"
         android:layout_width="126dp"
         android:layout_height="42dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="84dp"
         android:entries="@array/moedas"
         android:spinnerMode="dialog"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.161"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/TxtConversor" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.242" />
 
     <Button
         android:id="@+id/troca1"
@@ -117,9 +121,9 @@
         app:iconTint="#E80000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.358" />
+        app:layout_constraintVertical_bias="0.32" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
