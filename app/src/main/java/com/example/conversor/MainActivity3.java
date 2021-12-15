@@ -1,89 +1,94 @@
 package com.example.conversor;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity3 extends AppCompatActivity {
 
-    private ListView lvBancotela1;
+    private Button Voltar;
+    private ListView lvvalores;
     private ArrayAdapter adapter;
-    private List<Bancotela1> listademoedas;
+    private List<Valores> listaDeValores;
 
-    Button btncarteira;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main3);
+        setContentView(R.layout.carteira);
+        lvvalores = findViewById(R.id.lvvalores);
+        carregarValores();
 
-        lvBancotela1 = findViewById(R.id.lvmoedas);
-        carregarmoedas();
 
-//-------------------------------------------------------------------------------------------------//
 
-//-------------------------------------------------------------------------------------------------//
-
-        btncarteira = findViewById(R.id.btncarteira);
-        btncarteira.setOnClickListener(new View.OnClickListener() {
+        Voltar = findViewById(R.id.Voltar);
+        Voltar.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View v) {
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity3.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+    protected void onRestart(){
+        super.onRestart();
+        carregarValores();
 
-                Intent i = new Intent(MainActivity3.this, MainActivity.class);
-                startActivity(i);
 
+        lvvalores.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
+                excluir(position);
+                return true;
             }
         });
     }
 
-//-------------------------------------------------------------------------------------------------//
 
-//-------------------------------------------------------------------------------------------------//
 
-    private void carregarmoedas(){
+    private void carregarValores(){
 
-        listademoedas = Bancotela1DAO.getBancotelas1(this);
-
-        if (listademoedas.size()==0){
-
-            Bancotela1 fake = new Bancotela1("!!! Lista vazia !!!", "!!! Lista vazia !!!", "!!! Lista vazia !!!",
-                    "!!! Lista vazia !!!", "!!! Lista vazia !!!", "!!! Lista vazia !!!");
-
-            listademoedas.add(fake);
-            lvBancotela1.setEnabled(false);
-
-        }else {
-
-            lvBancotela1.setEnabled(true);
-
+        listaDeValores = ValoresDAO.getValores(this);
+        if (listaDeValores.size() == 0) {
+            Valores fake = new Valores("Lista Vazia!!!", "", "");
+            listaDeValores.add(fake);
+            lvvalores.setEnabled(false);
+        }else{
+                lvvalores.setEnabled(true);
         }
 
-        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listademoedas);
-        lvBancotela1.setAdapter(adapter);
+        adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, listaDeValores);
+        lvvalores.setAdapter(adapter);
+
 
     }
 
-//-------------------------------------------------------------------------------------------------//
+    private void excluir(int posicao){
+        Valores valores = listaDeValores.get(posicao);
+        AlertDialog.Builder alerta = new AlertDialog.Builder(this);
+        alerta.setTitle("Remover Registro...");
+        alerta.setIcon(android.R.drawable.ic_delete);
+        alerta.setMessage("Você deseja remover a Conversão!!!");
+        alerta.setNeutralButton("Cancelar", null);
 
-//-------------------------------------------------------------------------------------------------//
-
-    // Parte final para atualizar a lista
-
-    @Override
-    protected void onRestart(){
-        super.onRestart();
-        carregarmoedas();
-
-   }
-
-
-
+        alerta.setPositiveButton("Excluir", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int which) {
+                ValoresDAO.excluir(MainActivity3.this, valores.getId());
+                carregarValores();
+            }
+        });
+        alerta.show();
+    }
 }

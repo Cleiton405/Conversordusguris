@@ -20,8 +20,9 @@ public class MainActivity extends AppCompatActivity {
     private TextView Txtresultado;
     private Button btnconverter;
     private Button troca1;
-
-    Button btnSalvar;
+    private Valores valores;
+    private Button btnSalvar;
+    private Button carteira;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,32 +34,24 @@ public class MainActivity extends AppCompatActivity {
         Spmoeda = findViewById(R.id.Spmoeda);
         Txtresultado = findViewById(R.id.Txtresultado);
         btnconverter = findViewById(R.id.btnConverter);
-
-//-------------------------------------------------------------------------------------------------//
-
-//-------------------------------------------------------------------------------------------------//
-
-        // troca de tela 1 para o botão salvar -- Direção carteira
-
         btnSalvar = findViewById(R.id.btnSalvar);
+        carteira = findViewById(R.id.carteira);
+
+//-------------------------------------------------------------------------------------------------//
         btnSalvar.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-
-                Intent i = new Intent(MainActivity.this, MainActivity3.class);
-                startActivity(i);
-
-                salvar();
-
-            }
+            public void onClick(View v) { salvar(); }
         });
 
 //-------------------------------------------------------------------------------------------------//
-
+        carteira.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, MainActivity3.class);
+                startActivity(intent);
+            }
+        });
 //-------------------------------------------------------------------------------------------------//
-
-        // trocar tela 1 para tela 2 na conversão de moedas
-
         troca1 = findViewById(R.id.troca1);
         troca1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,11 +61,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-
 //-------------------------------------------------------------------------------------------------//
-
-//-------------------------------------------------------------------------------------------------//
-
         btnconverter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -164,30 +153,27 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-//-------------------------------------------------------------------------------------------------//
+    public void salvar(){
 
-//-------------------------------------------------------------------------------------------------//
+        String resultado = Txtresultado.getText().toString();
 
-    public void salvar() {
-
-        String moeda = Txtmoeda.getText().toString();
-
-        if(moeda.isEmpty() && Spmoeda.getSelectedItemPosition() == 0 ){
-
+        if(Spmoeda.getSelectedItemPosition() == 0 && Spcripto.getSelectedItemPosition() == 0){
             Toast.makeText(this, "!!! Preencha todos os campos !!!", Toast.LENGTH_LONG).show();
 
         }else {
 
-            Bancotela1 banco = new Bancotela1();
-            banco.setMoeda(Spmoeda.getSelectedItem().toString());
-            banco.setCripto(Spcripto.getSelectedItem().toString());
+                valores = new Valores();
 
-            Bancotela1DAO.inserir(this, banco);
+            valores.setMoeda(Spcripto.getSelectedItem().toString());
+            valores.setConversao(Spmoeda.getSelectedItem().toString());
+            valores.setResultado(resultado);
 
-            Txtmoeda.setText(" ");
-            Spmoeda.setSelection(0, true);
-            Spcripto.setSelection(0, true);
 
+                ValoresDAO.inserir(this, valores);
+                Spmoeda.setSelection(0, true);
+                Spcripto.setSelection(0, true);
+                Txtresultado.setText("");
+                finish();
 
         }
 
