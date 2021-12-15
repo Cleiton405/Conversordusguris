@@ -8,36 +8,16 @@ public class Banco extends SQLiteOpenHelper {
 
     private static final String NOME_BANCO = "Banco";
     private static final int VERSAO = 1;
-
-    public Banco(Context context){
-
-        super(context, NOME_BANCO, null, VERSAO);
-
-    }
-
+    public Banco(Context context){super(context, NOME_BANCO, null, VERSAO);}
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
-        sqLiteDatabase.execSQL( "CREATE TABLE IF NOT EXISTS moedas (  "+
-
-                "  moeda TEXT NOT NULL , " +
-
-                "  cripto TEXT NOT NULL," +
-
-                "  resultado TEXT NOT NULL) ");
-
-        sqLiteDatabase.execSQL( "CREATE TABLE IF NOT EXISTS moedas1 (  "+
-
-                "  moeda1 TEXT NOT NULL , " +
-
-                "  cripto1 TEXT NOT NULL," +
-
-                "  resultado1 TEXT NOT NULL) ");
-
+    public void onCreate(SQLiteDatabase db) {
+        db.execSQL( "CREATE TABLE IF NOT EXISTS valores(  "+
+                "id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,"+
+                "  moeda TEXT, " +
+                "  cripto TEXT," +
+                "  resultado TEXT) ");
     }
-
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
-
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }
 }

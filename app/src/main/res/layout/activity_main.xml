@@ -14,10 +14,10 @@
         android:spinnerMode="dialog"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintHorizontal_bias="0.155"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.442" />
+        app:layout_constraintVertical_bias="0.242" />
 
     <Button
         android:id="@+id/btnConverter"
@@ -39,9 +39,9 @@
 
     <TextView
         android:id="@+id/TxtConversor"
-        android:layout_width="191dp"
-        android:layout_height="80dp"
-        android:text="Conversor Moeda - Criptomoeda"
+        android:layout_width="272dp"
+        android:layout_height="78dp"
+        android:text="Conversor          Criptomoeda - Moeda"
         android:textAlignment="center"
         android:textAllCaps="true"
         android:textColor="#F10606"
@@ -110,7 +110,7 @@
         app:layout_constraintHorizontal_bias="0.161"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.242" />
+        app:layout_constraintVertical_bias="0.438" />
 
     <Button
         android:id="@+id/troca1"
@@ -124,6 +124,20 @@
         app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintVertical_bias="0.347" />
+
+    <Button
+        android:id="@+id/carteira"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="298dp"
+        android:layout_marginEnd="33dp"
+        android:layout_marginBottom="41dp"
+        android:text="carteira"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSalvar"
+        app:layout_constraintStart_toEndOf="@+id/btnConverter"
+        app:layout_constraintTop_toBottomOf="@+id/Txtresultado" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
