@@ -73,30 +73,34 @@ public class MainActivity extends AppCompatActivity {
                 double valorMoeda = Double.parseDouble(Txtmoeda.getText().toString());
                 if (Spmoeda.getSelectedItemPosition() == 0 || Spcripto.getSelectedItemPosition() == 0) {
                     Toast.makeText(MainActivity.this, "Selecione uma moeda!!!", Toast.LENGTH_LONG).show();
+                    return;
 
-                } else if (valorMoeda == 0) {
-                    Toast.makeText(MainActivity.this, "Digite um valor maior que 0", Toast.LENGTH_LONG).show();
-                } else if (Spmoeda.getSelectedItemPosition() == 1) {
+                }
+                if (valorMoeda == 0) {
+                    Toast.makeText(MainActivity.this, "Digite um valor maior que 0!!!", Toast.LENGTH_LONG).show();
+                    return;
+                }
+                if (Spmoeda.getSelectedItemPosition() == 1) {
                     if (Spcripto.getSelectedItemPosition() == 1) {
                         //Real
                         double resultado;
-                        resultado = valorMoeda * 268.38709;
+                        resultado = valorMoeda * 273.73665;
                         Txtresultado.setText(" Valor:R$" + resultado);
                     } else if (Spcripto.getSelectedItemPosition() == 2) {
                         double resultado;
-                        resultado = valorMoeda * 23.35573;
+                        resultado = valorMoeda * 22.90343;
                         Txtresultado.setText(" Valor:R$" + resultado);
                     } else if (Spcripto.getSelectedItemPosition() == 3) {
                         double resultado;
-                        resultado = valorMoeda * 3.22767;
+                        resultado = valorMoeda * 3.04046;
                         Txtresultado.setText(" Valor:R$" + resultado);
                     } else if (Spcripto.getSelectedItemPosition() == 4) {
                         double resultado;
-                        resultado = valorMoeda * 591.40;
+                        resultado = valorMoeda * 565.38;
                         Txtresultado.setText(" Valor:R$" + resultado);
                     } else if (Spcripto.getSelectedItemPosition() == 5) {
                         double resultado;
-                        resultado = valorMoeda * 29.25;
+                        resultado = valorMoeda * 25.76;
                         Txtresultado.setText(" Valor:R$" + resultado);
                     }
                 }
@@ -104,23 +108,23 @@ public class MainActivity extends AppCompatActivity {
                     if (Spcripto.getSelectedItemPosition() == 1) {
                         //Dólar
                         double resultado;
-                        resultado = valorMoeda * 48.29447;
+                        resultado = valorMoeda * 48.11943;
                         Txtresultado.setText(" Valor:$" + resultado);
                     } else if (Spcripto.getSelectedItemPosition() == 2) {
                         double resultado;
-                        resultado = valorMoeda * 4.19047;
+                        resultado = valorMoeda * 4.02579;
                         Txtresultado.setText(" Valor:$" + resultado);
                     } else if (Spcripto.getSelectedItemPosition() == 3) {
                         double resultado;
-                        resultado = valorMoeda * 579.35;
+                        resultado = valorMoeda * 534.28;
                         Txtresultado.setText(" Valor:$" + resultado);
                     } else if (Spcripto.getSelectedItemPosition() == 4) {
                         double resultado;
-                        resultado = valorMoeda * 106.01;
+                        resultado = valorMoeda * 99.59;
                         Txtresultado.setText(" Valor:$" + resultado);
                     } else if (Spcripto.getSelectedItemPosition() == 5) {
                         double resultado;
-                        resultado = valorMoeda * 5.25;
+                        resultado = valorMoeda * 4.49;
                         Txtresultado.setText(" Valor:$" + resultado);
                     }
                 }
@@ -128,23 +132,23 @@ public class MainActivity extends AppCompatActivity {
                     if (Spcripto.getSelectedItemPosition() == 1) {
                         //Euro
                         double resultado;
-                        resultado = valorMoeda * 42.77659;
+                        resultado = valorMoeda * 42.46242;
                         Txtresultado.setText(" Valor:$" + resultado);
                     } else if (Spcripto.getSelectedItemPosition() == 2) {
                         double resultado;
-                        resultado = valorMoeda * 3.71033;
+                        resultado = valorMoeda * 3.55600;
                         Txtresultado.setText(" Valor:$" + resultado);
                     } else if (Spcripto.getSelectedItemPosition() == 3) {
                         double resultado;
-                        resultado = valorMoeda * 513.64;
+                        resultado = valorMoeda * 471.97;
                         Txtresultado.setText(" Valor:$" + resultado);
                     } else if (Spcripto.getSelectedItemPosition() == 4) {
                         double resultado;
-                        resultado = valorMoeda * 93.86;
+                        resultado = valorMoeda * 87.82;
                         Txtresultado.setText(" Valor:$" + resultado);
                     } else if (Spcripto.getSelectedItemPosition() == 5) {
                         double resultado;
-                        resultado = valorMoeda * 4.64;
+                        resultado = valorMoeda * 3.96;
                         Txtresultado.setText(" Valor:$" + resultado);
                     }
                 }

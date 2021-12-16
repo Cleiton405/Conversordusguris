@@ -71,92 +71,95 @@ public class MainActivity2 extends AppCompatActivity {
                 double valorCripto = Double.parseDouble(Txtcripto1.getText().toString());
                 if(spcripto1.getSelectedItemPosition()== 0 || spmoeda1.getSelectedItemPosition()== 0){
                     Toast.makeText(MainActivity2.this,"Selecione uma moeda!!!",Toast.LENGTH_LONG).show();
-
-                }else if(valorCripto == 0){
-                    Toast.makeText(MainActivity2.this,"Digite uma valor maior que 0",Toast.LENGTH_LONG).show();
-                }else if(spcripto1.getSelectedItemPosition()== 1){
+                    return;
+                }
+                if(valorCripto == 0){
+                    Toast.makeText(MainActivity2.this,"Digite uma valor maior que 0!!!",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(spcripto1.getSelectedItemPosition()== 1){
                     if(spmoeda1.getSelectedItemPosition()== 1){
                         //Real
                         double resultado;
-                        resultado = valorCripto/(268.38709);
+                        resultado = valorCripto/(273.73665);
                         Txtresultado1.setText(" Valor:"+resultado);
                     } else if(spmoeda1.getSelectedItemPosition()== 2){
                         //Dólar
                         double resultado;
-                        resultado = valorCripto/(48.29447);
+                        resultado = valorCripto/(48.11943);
                         Txtresultado1.setText(" Valor:"+resultado);
                     } else if(spmoeda1.getSelectedItemPosition()== 3){
                         //Euro
                         double resultado;
-                        resultado = valorCripto/(42.77659);
+                        resultado = valorCripto/(42.46242);
                         Txtresultado1.setText(" Valor:"+resultado);
                     }
                 }else if(spcripto1.getSelectedItemPosition()== 2){
                     if(spmoeda1.getSelectedItemPosition()== 1){
                         //Real
                         double resultado;
-                        resultado = valorCripto/(23.35573);
+                        resultado = valorCripto/(22.90343);
                         Txtresultado1.setText(" Valor:"+resultado);
                     } else if(spmoeda1.getSelectedItemPosition()== 2){
                         //Dólar
                         double resultado;
-                        resultado = valorCripto/(4.19047);
+                        resultado = valorCripto/(4.02579);
                         Txtresultado1.setText(" Valor:"+resultado);
                     } else if(spmoeda1.getSelectedItemPosition()== 3){
                         //Euro
                         double resultado;
-                        resultado = valorCripto/(3.71033);
+                        resultado = valorCripto/(3.55600);
                         Txtresultado1.setText(" Valor:"+resultado);
                     }
                 }else if(spcripto1.getSelectedItemPosition()== 3){
                     if(spmoeda1.getSelectedItemPosition()== 1){
                         //Real
                         double resultado;
-                        resultado = valorCripto/(3.22767);
+                        resultado = valorCripto/(3.04046);
                         Txtresultado1.setText(" Valor:"+resultado);
                     } else if(spmoeda1.getSelectedItemPosition()== 2){
                         //Dólar
                         double resultado;
-                        resultado = valorCripto/(579.35);
+                        resultado = valorCripto/(534.28);
                         Txtresultado1.setText(" Valor:"+resultado);
                     } else if(spmoeda1.getSelectedItemPosition()== 3){
                         //Euro
                         double resultado;
-                        resultado = valorCripto/(513.64);
+                        resultado = valorCripto/(471.97);
                         Txtresultado1.setText(" Valor:"+resultado);
                     }
                 }else if(spcripto1.getSelectedItemPosition()== 4){
                     if(spmoeda1.getSelectedItemPosition()== 1){
                         //Real
                         double resultado;
-                        resultado = valorCripto/(591.40);
+                        resultado = valorCripto/(565.38);
                         Txtresultado1.setText(" Valor:"+resultado);
                     } else if(spmoeda1.getSelectedItemPosition()== 2){
                         //Dólar
                         double resultado;
-                        resultado = valorCripto/(106.01);
+                        resultado = valorCripto/(99.59);
                         Txtresultado1.setText(" Valor:"+resultado);
                     } else if(spmoeda1.getSelectedItemPosition()== 3){
                         //Euro
                         double resultado;
-                        resultado = valorCripto/(93.86);
+                        resultado = valorCripto/(87.82);
                         Txtresultado1.setText(" Valor:"+resultado);
                     }
                 }else if(spcripto1.getSelectedItemPosition()== 5){
                     if(spmoeda1.getSelectedItemPosition()== 1){
                         //Real
                         double resultado;
-                        resultado = valorCripto/(29.25);
+                        resultado = valorCripto/(25.76);
                         Txtresultado1.setText(" Valor:"+resultado);
                     } else if(spmoeda1.getSelectedItemPosition()== 2){
                         //Dólar
                         double resultado;
-                        resultado = valorCripto/(5.25);
+                        resultado = valorCripto/(4.49);
                         Txtresultado1.setText(" Valor:"+resultado);
                     } else if(spmoeda1.getSelectedItemPosition()== 3){
                         //Euro
                         double resultado;
-                        resultado = valorCripto/(4.64);
+                        resultado = valorCripto/(3.96);
                         Txtresultado1.setText(" Valor:"+resultado);
                     }
                 }
@@ -175,6 +178,7 @@ public class MainActivity2 extends AppCompatActivity {
 
         }else if (resultado.equals("")){
             Toast.makeText(this, "!!! Faça a conversão !!!", Toast.LENGTH_LONG).show();
+            return;
         }
         else{
 

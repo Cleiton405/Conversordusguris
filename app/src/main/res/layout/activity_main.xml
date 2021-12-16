@@ -21,14 +21,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.233" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnConverter"
-        style="@style/Widget.AppCompat.Button"
-        android:layout_width="94dp"
-        android:layout_height="37dp"
+        style="@style/Button"
+        android:layout_width="77dp"
+        android:layout_height="40dp"
+        android:background="#000000"
         android:text="Converter"
         android:textAlignment="center"
         android:textAllCaps="true"
+        android:textColor="#FFFFFF"
         android:textSize="10sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
