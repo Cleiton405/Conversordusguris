@@ -73,8 +73,8 @@ public class MainActivity3 extends AppCompatActivity {
     private void excluir(int posicao){
         Valores valores = listaDeValores.get(posicao);
         AlertDialog.Builder alerta = new AlertDialog.Builder(this);
-        alerta.setTitle("Remover Registro...");
-        alerta.setIcon(android.R.drawable.ic_delete);
+        alerta.setTitle("Excluir...");
+        alerta.setIcon(android.R.drawable.stat_sys_warning);
         alerta.setMessage("Você deseja remover a Conversão!!!");
         alerta.setNeutralButton("Cancelar", null);
 
