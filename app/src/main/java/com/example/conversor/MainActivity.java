@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String valor = Txtmoeda.getText().toString();
                 if (valor.equals("")) {
-                    Toast.makeText(MainActivity.this, "digite um valor!!!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Digite um valor!!!", Toast.LENGTH_LONG).show();
                     return;
                 }
                 double valorMoeda = Double.parseDouble(Txtmoeda.getText().toString());
@@ -154,16 +154,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void salvar(){
-
+        String valor = Txtmoeda.getText().toString();
         String resultado = Txtresultado.getText().toString();
 
-        if(Spmoeda.getSelectedItemPosition() == 0 && Spcripto.getSelectedItemPosition() == 0){
+        if(Spmoeda.getSelectedItemPosition() == 0 || Spcripto.getSelectedItemPosition() == 0 || valor.equals("")){
             Toast.makeText(this, "!!! Preencha todos os campos !!!", Toast.LENGTH_LONG).show();
 
-        }else {
-
-                valores = new Valores();
-
+        }else if (resultado.equals("")){
+            Toast.makeText(this, "!!! Faça a conversão !!!", Toast.LENGTH_LONG).show();
+        }
+        else{
+            valores = new Valores();
             valores.setMoeda(Spcripto.getSelectedItem().toString());
             valores.setConversao(Spmoeda.getSelectedItem().toString());
             valores.setResultado(resultado);
@@ -173,7 +174,7 @@ public class MainActivity extends AppCompatActivity {
                 Spmoeda.setSelection(0, true);
                 Spcripto.setSelection(0, true);
                 Txtresultado.setText("");
-                finish();
+
 
         }
 

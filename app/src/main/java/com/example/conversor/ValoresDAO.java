@@ -30,7 +30,7 @@ public class ValoresDAO {
         List<Valores> lista = new ArrayList<>();
         Banco conn = new Banco(context);
         SQLiteDatabase db = conn.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM valores ORDER BY moeda", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM valores ORDER BY id", null);
 
        if (cursor.getCount() > 0){
 

@@ -29,28 +29,18 @@ public class MainActivity2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
-
         Txtcripto1 = findViewById(R.id.Txtcripto1);
         spcripto1 = findViewById(R.id.spcripto1);
         spmoeda1 = findViewById(R.id.spmoeda1);
         Txtresultado1 = findViewById(R.id.Txtresultado1);
         btnconverter1 = findViewById(R.id.btnConverter1);
         troca2 = findViewById(R.id.troca2);
-
 //-------------------------------------------------------------------------------------------------//
-
-//-------------------------------------------------------------------------------------------------//
-
-        //Salvar
-
         btnSalvar1 = findViewById(R.id.btnSalvar1);
         btnSalvar1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { salvar(); }
         });
-
-//-------------------------------------------------------------------------------------------------//
-
 //-------------------------------------------------------------------------------------------------//
         carteira1 = findViewById(R.id.carteira1);
         carteira1.setOnClickListener(new View.OnClickListener() {
@@ -60,8 +50,7 @@ public class MainActivity2 extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        // trocar tela 2 para tela 1 na conversão de moedas
-
+//-------------------------------------------------------------------------------------------------//
         troca2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,9 +60,6 @@ public class MainActivity2 extends AppCompatActivity {
         });
 
 //-------------------------------------------------------------------------------------------------//
-
-//-------------------------------------------------------------------------------------------------//
-
         btnconverter1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -174,21 +160,23 @@ public class MainActivity2 extends AppCompatActivity {
                         Txtresultado1.setText(" Valor:"+resultado);
                     }
                 }
-
                 }
-
         });
-
     }
+    //-------------------------------------------------------------------------------------------------//
     public void salvar() {
 
         String resultado = Txtresultado1.getText().toString();
+        String valor = Txtcripto1.getText().toString();
 
-        if(spmoeda1.getSelectedItemPosition() == 0 && spcripto1.getSelectedItemPosition() == 0){
+        if(spmoeda1.getSelectedItemPosition() == 0 || spcripto1.getSelectedItemPosition() == 0 || valor.equals("")){
 
             Toast.makeText(this, "!!! Preencha todos os campos !!!", Toast.LENGTH_LONG).show();
 
-        }else {
+        }else if (resultado.equals("")){
+            Toast.makeText(this, "!!! Faça a conversão !!!", Toast.LENGTH_LONG).show();
+        }
+        else{
 
             valores = new Valores();
 
@@ -200,7 +188,6 @@ public class MainActivity2 extends AppCompatActivity {
             spcripto1.setSelection(0, true);
             spmoeda1.setSelection(0, true);
             Txtresultado1.setText("");
-                // finish();
             }
         }
 

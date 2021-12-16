@@ -30,6 +30,13 @@ public class MainActivity3 extends AppCompatActivity {
         lvvalores = findViewById(R.id.lvvalores);
         carregarValores();
 
+        lvvalores.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
+                excluir(position);
+                return true;
+            }
+        });
 
 
         Voltar = findViewById(R.id.Voltar);
@@ -44,24 +51,13 @@ public class MainActivity3 extends AppCompatActivity {
     protected void onRestart(){
         super.onRestart();
         carregarValores();
-
-
-        lvvalores.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int position, long id) {
-                excluir(position);
-                return true;
-            }
-        });
     }
-
-
 
     private void carregarValores(){
 
         listaDeValores = ValoresDAO.getValores(this);
         if (listaDeValores.size() == 0) {
-            Valores fake = new Valores("Lista Vazia!!!", "", "");
+            Valores fake = new Valores("Lista Vazia", "", "");
             listaDeValores.add(fake);
             lvvalores.setEnabled(false);
         }else{

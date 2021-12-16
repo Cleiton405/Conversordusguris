@@ -18,7 +18,7 @@ public class Valores {
         this.resultado = resultado;
     }
 
-    public String toString(){return moeda+"/"+conversao+":"+resultado;}
+    public String toString(){ return moeda + "/" + conversao + ": " + resultado; }
 
     public int getId() { return id; }
 
